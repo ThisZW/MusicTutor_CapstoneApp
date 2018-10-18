@@ -1,9 +1,9 @@
 # Music Tutor App for Android OS
 
 
-### Using android's native Java with integrated React Native for views.
+## Using android's native Java with integrated React Native for views.
 
-####To start using the app
+###To start using the app
 
 ```
 #Make sure android studio and NPM is installed
