@@ -16,7 +16,7 @@ export default class Piano extends Component {
     while(count < 53){
       whiteKeyNotes[index] == 'C' ? octave++: null
       let notes = whiteKeyNotes[index] + octave.toString()
-      arr.push(<WhiteKey notes={notes} />)
+      arr.push(<WhiteKey key={count} notes={notes}/>)
       //prepare for next note
       index < 6 ? index++ : index = 0
       count++
@@ -32,7 +32,8 @@ export default class Piano extends Component {
     while(count < 52){
       blackKeyNotes[index] == 'C#' ? octave++: null
       let notes = blackKeyNotes[index] + octave.toString()
-      blackKeyNotes[index] ? arr.push(<BlackKey notes={notes} />) : arr.push(<EmptyBlackKey notes={notes}/>)
+      blackKeyNotes[index] ? arr.push(<BlackKey key={count} notes={notes} />) : arr.push(<EmptyBlackKey key={0}/>)
+      //prepare for next note
       index < 6 ? index++ : index = 0
       count++
     }
@@ -53,18 +54,26 @@ export default class Piano extends Component {
   }
 } 
 
+
 class WhiteKey extends Component {
+  constructor(){
+    super()
+  }
   render(){
     return (
       <View>
-        <View style={style.whiteKey}/>
+        <View style={ this.props.isPlaying ? style.whiteKeyPlaying: style.whiteKey}/>
         <Text style={style.notesText}>{this.props.notes}</Text>
       </View>
     )
   }
 }
 
+
 class BlackKey extends Component {
+  constructor(){
+    super()
+  }
   render(){
     return (
       <View>
@@ -92,7 +101,14 @@ const style = StyleSheet.create({
     width: 30,
     height: 130,
     backgroundColor: 'white',
-    borderWidth: 0.5,
+    borderWidth: 1,
+    borderColor: 'black',
+  },
+  whiteKeyPlaying: {
+    width: 30,
+    height: 130,
+    backgroundColor: 'green',
+    borderWidth: 1,
     borderColor: 'black',
   },
   blackKeyContainer:{
@@ -119,3 +135,5 @@ const style = StyleSheet.create({
     textAlign: 'center',
   }
 })
+
+			
