@@ -7,15 +7,25 @@ import com.facebook.react.bridge.ReactMethod;
 
 import java.util.*;
 
+import be.tarsos.dsp.AudioDispatcher;
+import be.tarsos.dsp.AudioEvent;
+import be.tarsos.dsp.AudioProcessor;
+
+import be.tarsos.dsp.io.android.AudioDispatcherFactory;
+
+import be.tarsos.dsp.pitch.PitchDetectionHandler;
+import be.tarsos.dsp.pitch.PitchDetectionResult;
+import be.tarsos.dsp.pitch.PitchProcessor;
+
 public class AudioModule extends ReactContextBaseJavaModule
 {
-    private double variable;
+    private double frequency;
     
     //constructor
     public AudioModule( ReactApplicationContext reactContext )
     {
         super( reactContext );
-        variable = 0.0000001;
+        frequency = 0;
     }
     
     //Mandatory function getName that specifies the module name
@@ -31,7 +41,7 @@ public class AudioModule extends ReactContextBaseJavaModule
     {
         try
         {
-            function.invoke( variable );
+            function.invoke( frequency );
         }
         catch( Exception e )
         {
