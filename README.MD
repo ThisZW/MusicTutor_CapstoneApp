@@ -3,16 +3,15 @@
 
 
 
-### Start Web app
+### Start Web app (Most of prototypes should be here)
 
 ```
 go to music-tutor-web-app for instructions
 ```
 
 
-## Using android's native Java with integrated React Native for views.
 
-### To start using the app
+### Start android app
 
 ```
 #Make sure android studio and NPM is installed
