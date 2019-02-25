@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/zw/GitHub/MusicTutor_CapstoneApp/application/android/app/build/intermediates/incremental/mergeDevKernelDebugResources/merged.dir/values-lo-rLA/values-lo-rLA.xml",
+            "map": [
+                {
+                    "source": "/Users/zw/.gradle/caches/transforms-1/files-1.1/exoplayer-ui-2.6.1.aar/0a7345c79e67e37bbe789f261f386f98/res/values-lo-rLA/values-lo-rLA.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,136,208,280,346,424,508,588,664,738,814",
+                        "endColumns": "80,71,71,65,77,83,79,75,73,75,63",
+                        "endOffsets": "131,203,275,341,419,503,583,659,733,809,873"
+                    }
+                }
+            ]
+        }
+    ]
+}

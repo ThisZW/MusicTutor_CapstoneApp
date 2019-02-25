@@ -1,0 +1,13 @@
+#Sun Feb 24 13:43:08 EST 2019
+path.3=classes3.dex
+path.2=classes2.dex
+path.1=classes.dex
+path.0=classes.dex
+base.3=/Users/zw/GitHub/MusicTutor_CapstoneApp/application/android/app/build/intermediates/transforms/dexMerger/devKernel/debug/1
+base.2=/Users/zw/GitHub/MusicTutor_CapstoneApp/application/android/app/build/intermediates/transforms/dexMerger/devKernel/debug/1
+base.1=/Users/zw/GitHub/MusicTutor_CapstoneApp/application/android/app/build/intermediates/transforms/dexMerger/devKernel/debug/1
+base.0=/Users/zw/GitHub/MusicTutor_CapstoneApp/application/android/app/build/intermediates/transforms/dexMerger/devKernel/debug/0
+renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
