@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/.DS_Store",
+      "sha1": "ecb5f051684912735e5e5ec322bdfdbdaf95ee96"
+    },
+    {
+      "path": "assets/audio_samples/piano-c5.wav",
+      "sha1": "4ba37545d8aab22f3597b01115a201731d65b644"
+    },
+    {
+      "path": "assets/midis/happy_birthday.mid",
+      "sha1": "9981bb19c07adadb72c09c35e6b203cf0a0a2a0c"
+    },
+    {
+      "path": "assets/midis/twinkle_twinkle.mid",
+      "sha1": "25802f2970f3304bcfe76d5d3447894e598c1b67"
+    }
+  ]
+}

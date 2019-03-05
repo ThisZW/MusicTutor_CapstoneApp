@@ -29,7 +29,7 @@ export default class Tuner {
     Recording.init({
       sampleRate: this.sampleRate,
       bufferSize: this.bufferSize
-    });
+    }); 
     Recording.start();
     Recording.addRecordingEventListener(data => {
       const frequency = this.pitchFinder(data);

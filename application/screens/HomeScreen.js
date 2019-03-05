@@ -1,20 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
 import Piano from '../components/Piano';
 import {Platform, StyleSheet, Text, View, ScrollView, NativeModules, PermissionsAndroid} from 'react-native';
 import Permissions from 'react-native-permissions'
 import Orientation from 'react-native-orientation';
-//import Recording from 'react-native-recording'
-//import PitchFinder from 'pitchfinder'
-//import Tone from 'tone'
 import Tuner from '../note'
+
 export default class Home extends Component {
 
   state = {

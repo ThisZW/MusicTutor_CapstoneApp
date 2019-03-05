@@ -46,6 +46,10 @@
 		165D08C301E745BC9B32E999 /* libRecording.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D8D476161043778B71D933 /* libRecording.a */; };
 		B48F2AC3DA144F7FBD4DDA3E /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4701863F7E4AC2ACACA023 /* libReactNativePermissions.a */; };
 		BCE557A08DBD4F3483ABEAD8 /* libRNAudioRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F674FDFA58CD41C7B3C1FA6F /* libRNAudioRecord.a */; };
+		3223814070C94175B2B97560 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2260D1C22F87433ABAAEF2B5 /* libRNFS.a */; };
+		9DFB953312794D70AC05E5A1 /* piano-c5.wav in Resources */ = {isa = PBXBuildFile; fileRef = B45010C034A0408D82FD5323 /* piano-c5.wav */; };
+		9E7F3A44B7EE4D8C802B678B /* happy_birthday.mid in Resources */ = {isa = PBXBuildFile; fileRef = 4D93F83A4F464FC6A40C753C /* happy_birthday.mid */; };
+		87F000FAFBA44785A335D119 /* twinkle_twinkle.mid in Resources */ = {isa = PBXBuildFile; fileRef = 52F8B4E6658142B286B012E7 /* twinkle_twinkle.mid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -365,6 +369,11 @@
 		8B4701863F7E4AC2ACACA023 /* libReactNativePermissions.a */ = {isa = PBXFileReference; name = "libReactNativePermissions.a"; path = "libReactNativePermissions.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		9BB0D7578C0D4B90AF2ADAAB /* RNAudioRecord.xcodeproj */ = {isa = PBXFileReference; name = "RNAudioRecord.xcodeproj"; path = "../node_modules/react-native-audio-record/ios/RNAudioRecord.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		F674FDFA58CD41C7B3C1FA6F /* libRNAudioRecord.a */ = {isa = PBXFileReference; name = "libRNAudioRecord.a"; path = "libRNAudioRecord.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		E8561FFB21C247A5AC1EED67 /* RNFS.xcodeproj */ = {isa = PBXFileReference; name = "RNFS.xcodeproj"; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		2260D1C22F87433ABAAEF2B5 /* libRNFS.a */ = {isa = PBXFileReference; name = "libRNFS.a"; path = "libRNFS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		B45010C034A0408D82FD5323 /* piano-c5.wav */ = {isa = PBXFileReference; name = "piano-c5.wav"; path = "../assets/audio_samples/piano-c5.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4D93F83A4F464FC6A40C753C /* happy_birthday.mid */ = {isa = PBXFileReference; name = "happy_birthday.mid"; path = "../assets/midis/happy_birthday.mid"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		52F8B4E6658142B286B012E7 /* twinkle_twinkle.mid */ = {isa = PBXFileReference; name = "twinkle_twinkle.mid"; path = "../assets/midis/twinkle_twinkle.mid"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +407,7 @@
 				165D08C301E745BC9B32E999 /* libRecording.a in Frameworks */,
 				B48F2AC3DA144F7FBD4DDA3E /* libReactNativePermissions.a in Frameworks */,
 				BCE557A08DBD4F3483ABEAD8 /* libRNAudioRecord.a in Frameworks */,
+				3223814070C94175B2B97560 /* libRNFS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +602,7 @@
 				82FD36E444BF4AD4A1606C72 /* Recording.xcodeproj */,
 				E4B3F2BF2E52432293F8E5A6 /* ReactNativePermissions.xcodeproj */,
 				9BB0D7578C0D4B90AF2ADAAB /* RNAudioRecord.xcodeproj */,
+				E8561FFB21C247A5AC1EED67 /* RNFS.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -645,6 +656,9 @@
 			children = (
 				68230091C15147AFA1168D1C /* antfill.ttf */,
 				42BEBD95D7D7463EA729408D /* antoutline.ttf */,
+				B45010C034A0408D82FD5323 /* piano-c5.wav */,
+				4D93F83A4F464FC6A40C753C /* happy_birthday.mid */,
+				52F8B4E6658142B286B012E7 /* twinkle_twinkle.mid */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1098,6 +1112,9 @@
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				4D370E5AE3F5440585B08DFC /* antfill.ttf in Resources */,
 				11F8827DB06C44B5A8423D08 /* antoutline.ttf in Resources */,
+				9DFB953312794D70AC05E5A1 /* piano-c5.wav in Resources */,
+				9E7F3A44B7EE4D8C802B678B /* happy_birthday.mid in Resources */,
+				87F000FAFBA44785A335D119 /* twinkle_twinkle.mid in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1237,6 +1254,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1245,6 +1263,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1271,6 +1290,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1279,6 +1299,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Release;
@@ -1306,6 +1327,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1332,6 +1354,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Release;
@@ -1366,6 +1389,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1374,6 +1398,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1408,6 +1433,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1416,6 +1442,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Release;
@@ -1449,6 +1476,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1457,6 +1485,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Debug;
@@ -1490,6 +1519,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1498,6 +1528,7 @@
 					"$(SRCROOT)/../node_modules/react-native-recording/lib/ios",
 					"$(SRCROOT)/../node_modules/react-native-permissions/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-audio-record/ios",
+					"$(SRCROOT)/../node_modules/react-native-fs/**",
 				);
 			};
 			name = Release;
