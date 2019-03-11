@@ -1,7 +1,23 @@
 import React, {Component} from 'react';
 import { Text, ScrollView, Picker } from 'react-native';
 import { Button, Flex, WhiteSpace, WingBlank } from '@ant-design/react-native';
+
+//import base64binary
+import base64binary from '../base64binary';
+//import MIDI package
+import AudioDetect from '../MIDI/AudioDetect';
+import LoadPlugin from '../MIDI/LoadPlugin';
+import Plugin from '../MIDI/Plugin';
+import Player from '../MIDI/Player';
+//import Loader from '../MIDI/Loader';
+//import jasmid package
+import stream from '../jasmid/stream';
+import midifile from '../jasmid/midifile';
+import replayer from '../jasmid/replayer';
+
 const fs = require('react-native-fs');
+
+
 
 export default class MidiImport extends Component {
 
@@ -27,6 +43,7 @@ export default class MidiImport extends Component {
   readMidiFiles = () => {
     return fs.readDirAssets('midis')
   }
+  
 
   //midi file goes here.
   handlePlayMidiAction = async(e) => {
