@@ -134,6 +134,8 @@ android {
 }
 
 dependencies {
+    implementation project(':realm')
+    implementation project(':react-native-sound')
     implementation project(':react-native-fs')
     implementation project(':react-native-audio-record')
     implementation project(':react-native-recording')

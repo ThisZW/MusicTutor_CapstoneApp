@@ -3,7 +3,7 @@ import Piano from '../components/Piano';
 import {Platform, StyleSheet, Text, View, ScrollView, NativeModules, PermissionsAndroid} from 'react-native';
 import Permissions from 'react-native-permissions'
 import Orientation from 'react-native-orientation';
-import Tuner from '../note'
+import Tuner from '../libs/note'
 
 export default class Home extends Component {
 
@@ -22,7 +22,7 @@ export default class Home extends Component {
   async componentDidMount(){
     Orientation.lockToLandscape();
     Orientation.addOrientationListener(this._orientationDidChange);
-    await Permissions.request('microphone')
+    await Permissions.request('microphone') 
 
     const tuner = new Tuner();
     tuner.start();
@@ -44,9 +44,8 @@ export default class Home extends Component {
   }
 
   render() {
-    //console.log(this.state.note)
     const playingNote = this.state.note.name + this.state.note.octave.toString()
-    console.log(playingNote)
+    //console.log(playingNote)
     return (
       <View style={styles.container}>
         <Piano playingNote={playingNote}/>

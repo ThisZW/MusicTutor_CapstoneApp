@@ -3,6 +3,8 @@ package com.application;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.realm.react.RealmReactPackage;
+import com.zmxv.RNSound.RNSoundPackage;
 import com.rnfs.RNFSPackage;
 import com.goodatlas.audiorecord.RNAudioRecordPackage;
 import cn.qiuxiang.react.recording.RecordingPackage;
@@ -28,6 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RealmReactPackage(),
+            new RNSoundPackage(),
             new RNFSPackage(),
             new RNAudioRecordPackage(),
             new RecordingPackage(),

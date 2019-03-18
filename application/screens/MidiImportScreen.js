@@ -1,23 +1,10 @@
 import React, {Component} from 'react';
 import { Text, ScrollView, Picker } from 'react-native';
 import { Button, Flex, WhiteSpace, WingBlank } from '@ant-design/react-native';
-
-//import base64binary
-import base64binary from '../base64binary';
-//import MIDI package
-import AudioDetect from '../MIDI/AudioDetect';
-import LoadPlugin from '../MIDI/LoadPlugin';
-import Plugin from '../MIDI/Plugin';
-import Player from '../MIDI/Player';
-//import Loader from '../MIDI/Loader';
-//import jasmid package
-import stream from '../jasmid/stream';
-import midifile from '../jasmid/midifile';
-import replayer from '../jasmid/replayer';
+//import { Orchestra } from '../react-orchestra/native'
+import { parseMidi } from '../react-orchestra/native'
 
 const fs = require('react-native-fs');
-
-
 
 export default class MidiImport extends Component {
 
@@ -25,11 +12,16 @@ export default class MidiImport extends Component {
     super()
     this.state = {
       midiSelected: null,
-      midiList: []
+      midiList: [],
+      playSong: false,
     }
+
+    this.onMidiLoaded = this.onMidiLoaded.bind(this);
+    this.onInstrumentsReady = this.onInstrumentsReady.bind(this);
   }
 
   componentDidMount = async() => {
+    //console.log('midi', MIDI)
     let files = await this.readMidiFiles()
     let filenames = files.map(v=>{
       return v.name
@@ -43,20 +35,42 @@ export default class MidiImport extends Component {
   readMidiFiles = () => {
     return fs.readDirAssets('midis')
   }
-  
 
-  //midi file goes here.
+  loadMidi = (midiBase64) => {
+    parseMidi(midiBase64, 'base64').then(res=>{
+      console.log(res)
+      this.setState({
+        //set something
+      })
+    })
+  }
+
   handlePlayMidiAction = async(e) => {
     e.preventDefault()
-    console.log('state', this.state.midiSelected)
+    //console.log('state', this.state.midiSelected)
     fs.readFileAssets(`midis/${this.state.midiSelected}`, 'base64')
     .then( res=>{
-      console.log(res)
+      this.loadMidi(res)
     })
     .catch( e => {
       console.log(e)
     })
   }
+
+  //test for react-orchestra
+  onMidiLoaded(parsedMidi) {
+    console.warn(`Midi loaded ${JSON.stringify(parsedMidi, 2, 2)}. Loading instruments now ...`);
+    return parsedMidi;
+  }
+  onInstrumentsReady(instruments) {
+    console.warn(`Instruments ${JSON.stringify(instruments, 2, 2)} are loaded into memory and ready !`);
+    this.setState({ play: true });
+    return instruments;
+  }
+  onNotePlayed(noteName) {
+    console.warn(`Note ${noteName} was played, optionally handle this event`);
+  }
+  //end
 
   render(){
      return(
