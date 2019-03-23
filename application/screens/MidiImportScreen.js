@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Text, ScrollView, Picker } from 'react-native';
 import { Button, Flex, WhiteSpace, WingBlank } from '@ant-design/react-native';
 //import { Orchestra } from '../react-orchestra/native'
-import { parseMidi } from '../react-orchestra/native'
+import { parseMidi } from '../midi-processor/native'
 
 const fs = require('react-native-fs');
 
