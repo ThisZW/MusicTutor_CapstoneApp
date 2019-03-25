@@ -152,7 +152,7 @@ class MidiIO {
     return instrumentNumber;
   }
 
-  static binaryStringToJSON(binaryStringMidi) {
+  static binaryStringToJSON(binaryStringMidi) {// parsedMIDI form binaryMidi to JSON
     const parsedMidi = midiFileParser(binaryStringMidi);
     return parsedMidi;
   }

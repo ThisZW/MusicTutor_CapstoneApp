@@ -6,6 +6,9 @@ import { parseMidi } from '../midi-processor/native'
 
 const fs = require('react-native-fs');
 
+//test Context
+const ThemeContext = React.createContext();
+
 export default class MidiImport extends Component {
 
   constructor(){
@@ -17,7 +20,6 @@ export default class MidiImport extends Component {
     }
 
     this.onMidiLoaded = this.onMidiLoaded.bind(this);
-    this.onInstrumentsReady = this.onInstrumentsReady.bind(this);
   }
 
   componentDidMount = async() => {
@@ -57,20 +59,18 @@ export default class MidiImport extends Component {
     })
   }
 
+  
+
   //test for react-orchestra
   onMidiLoaded(parsedMidi) {
     console.warn(`Midi loaded ${JSON.stringify(parsedMidi, 2, 2)}. Loading instruments now ...`);
-    return parsedMidi;
+    return (//test Context.Provider
+      <ThemeContext.Provider value={parsedMidi}>
+        <Toolbar />
+      </ThemeContext.Provider>
+      //parsedMidi
+    );
   }
-  onInstrumentsReady(instruments) {
-    console.warn(`Instruments ${JSON.stringify(instruments, 2, 2)} are loaded into memory and ready !`);
-    this.setState({ play: true });
-    return instruments;
-  }
-  onNotePlayed(noteName) {
-    console.warn(`Note ${noteName} was played, optionally handle this event`);
-  }
-  //end
 
   render(){
      return(

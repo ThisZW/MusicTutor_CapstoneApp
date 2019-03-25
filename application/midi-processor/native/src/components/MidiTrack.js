@@ -19,12 +19,12 @@ const waitAndRun = (fnc, waitTime, ...args) => setTimeout(fnc.bind(...args), wai
 export default class MidiTrack extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {//add each note name
       uniqueNotes: MidiIO.getUniqueFromMidiNotes(isDefined(props.notes, [])),
       playingNotes: {},
     };
     this.onTimerCall = this.onTimerCall.bind(this);
-    this.onInstrumentLoaded = this.onInstrumentLoaded.bind(this);
+    this.onInstrumentLoaded = this.onInstrumentLoaded.bind(this); //not need?
     this.noteTimers = [];
   }
   componentDidMount() {
@@ -39,16 +39,17 @@ export default class MidiTrack extends React.PureComponent {
       this.stopPlayingTrack();
     }
   }
-  async onTimerCall(note) {
+  async onTimerCall(note) {//get note and instrumentName to generate key and keep it InMS
     const { noteName, instrumentName, durationInMS } = note;
-    const noteInstrumentName = this.props.instrumentName || instrumentName;
+    const noteInstrumentName = this.props.instrumentName || instrumentName;//not need?
     const key = generateNoteKey(noteInstrumentName, noteName);
     this.setState({
       playingNotes: {
         [key]: true,
       },
     });
-    callIfExists(this.props.onNotePlayed, noteInstrumentName, noteName);
+    //processes each note
+    callIfExists(this.props.onNotePlayed, noteInstrumentName, noteName); 
     const updatedPlayingNotes = Object.assign({}, this.state.playingNotes);
     delete updatedPlayingNotes[key];
     await delay(durationInMS);
@@ -58,7 +59,7 @@ export default class MidiTrack extends React.PureComponent {
   onInstrumentLoaded(instrument) {
     callIfExists(this.props.onInstrumentsReady, instrument);
   }
-  async playTrack() {
+  async playTrack() {//take a note from track each time
     const notes = this.props.notes;
     for (let i = 0; i < notes.length; i += 1) {
       const currentNote = notes[i];
@@ -67,7 +68,7 @@ export default class MidiTrack extends React.PureComponent {
       this.noteTimers.push(noteTimer);
     }
   }
-  stopPlayingTrack() {
+  stopPlayingTrack() {// stop clear noteTimers
     for (let i = 0; i < this.noteTimers.length; i += 1) {
       clearTimeout(this.noteTimers[i]);
     }
