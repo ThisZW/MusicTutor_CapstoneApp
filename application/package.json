@@ -33,8 +33,8 @@
     "react-native-recording": "^0.4.1",
     "react-native-sound": "^0.10.12",
     "react-navigation": "^3.3.0",
-    "react-redux": "^6.0.1",
     "realm": "^2.24.0",
+    "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "tone": "^13.4.9"
   },
@@ -43,7 +43,9 @@
     "babel-jest": "24.1.0",
     "jest": "24.1.0",
     "metro-react-native-babel-preset": "0.52.0",
-    "react-test-renderer": "16.6.3"
+    "react-redux": "^6.0.1",
+    "react-test-renderer": "16.6.3",
+    "redux-thunk": "^2.3.0"
   },
   "jest": {
     "preset": "react-native"

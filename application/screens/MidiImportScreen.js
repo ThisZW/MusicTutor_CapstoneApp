@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Text, ScrollView, Picker } from 'react-native';
 import { Button, Flex, WhiteSpace, WingBlank } from '@ant-design/react-native';
-//import { Orchestra } from '../react-orchestra/native'
 import { parseMidi } from '../midi-processor/native'
+import { midiStartPlaying } from '../actions'
 
 const fs = require('react-native-fs');
 
@@ -41,9 +41,7 @@ export default class MidiImport extends Component {
   loadMidi = (midiBase64) => {
     parseMidi(midiBase64, 'base64').then(res=>{
       console.log(res)
-      this.setState({
-        //set something
-      })
+      midiStartPlaying(res)
     })
   }
 
@@ -58,8 +56,6 @@ export default class MidiImport extends Component {
       console.log(e)
     })
   }
-
-  
 
   //test for react-orchestra
   onMidiLoaded(parsedMidi) {
