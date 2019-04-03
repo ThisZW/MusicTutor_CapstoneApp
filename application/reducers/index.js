@@ -5,6 +5,5 @@ export default combineReducers({
   midi
 })
 
-export const getMidi = state => {
+export const getMidi = state => 
   fromMidi.getMidi(state)
-}

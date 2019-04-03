@@ -17,7 +17,8 @@ class Home extends Component {
         octave: 4,
         frequency: 440
       },
-      parsedMidi: null
+      parsedMidi: null,
+      isPlaying: false,
     };
   }
 
@@ -44,8 +45,9 @@ class Home extends Component {
 
 
   componentWillReceiveProps= (props) => {
+    console.log(props)
     this.setState({
-      parsedMidi: props.parsedMidi
+      ...props
     })
   }
 
@@ -58,7 +60,8 @@ class Home extends Component {
   }
 
   render() {
-    console.log('parsed', this.state.parsedMidi)
+    const { parsedMidi, isPlaying } = this.state
+    console.log('states', parsedMidi, isPlaying)
     const playingNote = this.state.note.name + this.state.note.octave.toString()
     //console.log(playingNote)
     return (
@@ -71,7 +74,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  parsedMidi: getMidi(state)
+  ...state.midi
 })
 
 const styles = StyleSheet.create({
