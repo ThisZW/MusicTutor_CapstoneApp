@@ -3,13 +3,12 @@ import { Text, ScrollView, Picker } from 'react-native';
 import { Button, Flex, WhiteSpace, WingBlank } from '@ant-design/react-native';
 import { parseMidi } from '../midi-processor/native'
 import { midiStartPlaying } from '../actions'
+import { getMidi } from '../reducers'
+import { connect } from 'react-redux'
 
 const fs = require('react-native-fs');
 
-//test Context
-const ThemeContext = React.createContext();
-
-export default class MidiImport extends Component {
+class MidiImport extends Component {
 
   constructor(){
     super()
@@ -18,8 +17,6 @@ export default class MidiImport extends Component {
       midiList: [],
       playSong: false,
     }
-
-    this.onMidiLoaded = this.onMidiLoaded.bind(this);
   }
 
   componentDidMount = async() => {
@@ -34,14 +31,14 @@ export default class MidiImport extends Component {
     })
   }
 
+
   readMidiFiles = () => {
     return fs.readDirAssets('midis')
   }
 
   loadMidi = (midiBase64) => {
     parseMidi(midiBase64, 'base64').then(res=>{
-      console.log(res)
-      midiStartPlaying(res)
+      this.props.midiStartPlaying(res)
     })
   }
 
@@ -57,24 +54,14 @@ export default class MidiImport extends Component {
     })
   }
 
-  //test for react-orchestra
-  onMidiLoaded(parsedMidi) {
-    console.warn(`Midi loaded ${JSON.stringify(parsedMidi, 2, 2)}. Loading instruments now ...`);
-    return (//test Context.Provider
-      <ThemeContext.Provider value={parsedMidi}>
-        <Toolbar />
-      </ThemeContext.Provider>
-      //parsedMidi
-    );
-  }
-
   render(){
      return(
       <ScrollView        
-      style={{ flex: 1 }}
-      automaticallyAdjustContentInsets={false}
-      showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}>
+        style={{ flex: 1 }}
+        automaticallyAdjustContentInsets={false}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+      >
         <WingBlank style={{ marginTop: 20, marginBottom: 5 }}>
           <Text style={{ marginBottom: 10 }}>Select your Midi file over here</Text>
         </WingBlank>
@@ -101,3 +88,12 @@ export default class MidiImport extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  parsedMidi: getMidi(state)
+})
+
+export default connect(
+  mapStateToProps,
+  { midiStartPlaying }
+)(MidiImport)

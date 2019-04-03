@@ -35,6 +35,7 @@ const createSoundFromPath = async localPath => new Promise((resolve, reject) => 
     }
   });
 });
+
 const playNote = (sound, volume = 1, loopCount = 0) =>
    new Promise((resolve, reject) => {
     // .setNumberOfLoops(5).play().setCurrentTime(0)

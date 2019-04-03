@@ -2,12 +2,6 @@
 	"folders": [
 		{
 			"path": "application"
-		},
-		{
-			"path": "music-tutor-web-app"
-		},
-		{
-			"path": "MusicTutorApp"
 		}
 	],
 	"settings": {}

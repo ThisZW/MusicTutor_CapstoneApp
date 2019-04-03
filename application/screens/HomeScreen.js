@@ -4,16 +4,22 @@ import {Platform, StyleSheet, Text, View, ScrollView, NativeModules, Permissions
 import Permissions from 'react-native-permissions'
 import Orientation from 'react-native-orientation';
 import Tuner from '../libs/note'
+import { getMidi } from '../reducers'
+import { connect } from 'react-redux'
 
-export default class Home extends Component {
+class Home extends Component {
 
-  state = {
-    note: {
-      name: "A",
-      octave: 4,
-      frequency: 440
-    }
-  };
+  constructor(){
+    super()
+    this.state = {
+      note: {
+        name: "A",
+        octave: 4,
+        frequency: 440
+      },
+      parsedMidi: null
+    };
+  }
 
   _update(note) {
     this.setState({ note });
@@ -33,6 +39,14 @@ export default class Home extends Component {
         this._lastNoteName = note.name;
       }
     };
+
+  }
+
+
+  componentWillReceiveProps= (props) => {
+    this.setState({
+      parsedMidi: props.parsedMidi
+    })
   }
 
   _orientationDidChange = (orientation) => {
@@ -44,6 +58,7 @@ export default class Home extends Component {
   }
 
   render() {
+    console.log('parsed', this.state.parsedMidi)
     const playingNote = this.state.note.name + this.state.note.octave.toString()
     //console.log(playingNote)
     return (
@@ -54,6 +69,10 @@ export default class Home extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  parsedMidi: getMidi(state)
+})
 
 const styles = StyleSheet.create({
   container: {
@@ -71,3 +90,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default connect(mapStateToProps)(Home)

@@ -22,4 +22,8 @@ const midi = (state = initialState, action) => {
   }
 }
 
+export const getMidi = (state) => {
+  return state.parsedMidi
+}
+
 export default midi
