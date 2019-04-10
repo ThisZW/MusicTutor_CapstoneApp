@@ -18,7 +18,8 @@ class Home extends Component {
         frequency: 440
       },
       parsedMidi: null,
-      isPlaying: false,
+      midiIsPlaying: false,
+      midiPlayingNotes: [],
     };
   }
 
@@ -26,7 +27,7 @@ class Home extends Component {
     this.setState({ note });
   }
 
-  async componentDidMount(){
+  componentDidMount = async() => {
     Orientation.lockToLandscape();
     Orientation.addOrientationListener(this._orientationDidChange);
     await Permissions.request('microphone') 
@@ -44,11 +45,39 @@ class Home extends Component {
   }
 
 
-  componentWillReceiveProps= (props) => {
-    console.log(props)
+  componentWillReceiveProps = (props) => {
     this.setState({
-      ...props
+      isPlaying: true,
+    }, () => {
+      props.parsedMidi.tracks[0].forEach( val => {
+        this.addNoteToState(val),
+        this.dropNoteFromState(val)
+      })
     })
+  }
+
+  addNoteToState = (val) => {
+    setTimeout(() => {
+      notes = this.state.midiPlayingNotes
+      notes.push(val.noteName)
+      this.setState({
+        midiPlayingNotes: notes
+      })
+    }, val.startTimeInMS)
+  }
+
+  dropNoteFromState = (val) => {
+    setTimeout(() => {
+      notes = this.state.midiPlayingNotes
+      //console.log('before', notes, val.noteName)
+      notes = notes.filter( note => 
+        note !== val.noteName
+      )
+      //console.log('after', notes)
+      this.setState({
+        midiPlayingNotes: notes
+      })
+    }, val.endTimeInMS)
   }
 
   _orientationDidChange = (orientation) => {
@@ -60,14 +89,12 @@ class Home extends Component {
   }
 
   render() {
-    const { parsedMidi, isPlaying } = this.state
-    console.log('states', parsedMidi, isPlaying)
+    const { midiPlayingNotes, midiIsPlaying} = this.state
     const playingNote = this.state.note.name + this.state.note.octave.toString()
-    //console.log(playingNote)
     return (
       <View style={styles.container}>
         <Piano playingNote={playingNote}/>
-        <Piano/>
+        <Piano midiPlayingNotes={midiPlayingNotes} midiIsPlaying={midiIsPlaying}/>
       </View>
     );
   }

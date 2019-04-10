@@ -9,41 +9,63 @@ const blackKeyNotes = ['A#', '', 'C#', 'D#', '', 'F#', 'G#']
 export default class Piano extends Component {
 
   getWhiteKeys = () => {
+    
     let arr = []
     let count = 1
     let index = 0
     let octave = 0
+
     while(count < 53){
+
       let isPlaying = false
+      let makeSound = false
+
       whiteKeyNotes[index] == 'C' ? octave++: null
-      let notes = whiteKeyNotes[index] + octave.toString()
-      if(notes === this.props.playingNote)
+      let note = whiteKeyNotes[index] + octave.toString()
+
+      if(note === this.props.playingNote){
         isPlaying = true
-      arr.push(<WhiteKey key={count} notes={notes} isPlaying={isPlaying}/>)
+      } else if(this.props.midiPlayingNotes && this.props.midiPlayingNotes.includes(note)){
+        isPlaying = true
+      }
+
+      arr.push(<WhiteKey key={count} note={note} isPlaying={isPlaying} makeSound={makeSound}/>)
       //prepare for next note
       index < 6 ? index++ : index = 0
       count++
     }
+
     return arr;
   }
 
   getBlackKeys = () => {
+
     let arr = []
     let count = 1
     let index = 0
     let octave = 0
+
     while(count < 52){
+
       let isPlaying = false
+      let makeSound = false
+
       blackKeyNotes[index] == 'C#' ? octave++: null
-      let notes = blackKeyNotes[index] + octave.toString()
-      if(notes === this.props.playingNote){
+      let note = blackKeyNotes[index] + octave.toString()
+
+      if(note === this.props.playingNote){
         isPlaying = true
+      } else if(this.props.midiPlayingNotes && this.props.midiPlayingNotes.includes(note)){
+        isPlaying = true
+        makeSound = true
       }
-      blackKeyNotes[index] ? arr.push(<BlackKey key={count} notes={notes} isPlaying={isPlaying}/>) : arr.push(<EmptyBlackKey key={count}/>)
+
+      blackKeyNotes[index] ? arr.push(<BlackKey key={count} note={note} isPlaying={isPlaying} makeSound={makeSound}/>) : arr.push(<EmptyBlackKey key={count}/>)
       //prepare for next note
       index < 6 ? index++ : index = 0
       count++
     }
+
     return arr;
   }
 
@@ -70,7 +92,7 @@ class WhiteKey extends Component {
     return (
       <View>
         <View style={ this.props.isPlaying ? style.whiteKeyPlaying: style.whiteKey}/>
-        <Text style={style.notesText}>{this.props.notes}</Text>
+        <Text style={style.notesText}>{this.props.note}</Text>
       </View>
     )
   }
@@ -85,7 +107,7 @@ class BlackKey extends Component {
     return (
       <View>
         <View style={ this.props.isPlaying ? style.blackKeyPlaying: style.blackKey}/>
-        <Text style={style.notesText}>{this.props.notes}</Text>
+        <Text style={style.notesText}>{this.props.note}</Text>
       </View>
     )
   }
